@@ -9,13 +9,13 @@ def get_food_report():
     try:
         response = requests.get(url)
         
-        # Step 3: Connection Test (Verification)
+        # Connection Test (Verification)
         if response.status_code == 200:
             data = response.json()
             # Navigate the JSON structure to get the first result
             report = data['results'][0]
             
-            # Step 4: Specific Data Extraction
+            # Specific Data Extraction
             print("\n" + "="*50)
             print("FDA ENFORCEMENT REPORT SUMMARY")
             print("="*50)
