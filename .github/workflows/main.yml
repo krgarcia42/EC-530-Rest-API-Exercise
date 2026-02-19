@@ -1,0 +1,24 @@
+name: Run FDA Report Check
+
+on:
+  workflow_dispatch: # Allows you to run it manually with a button
+  push:
+    branches: [ main ] # Runs every time you commit code
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/checkout@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Script
+        run: python fetch_report.py
